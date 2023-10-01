@@ -249,9 +249,9 @@ const AdminPanel = () => {
           <Link to="/admin/timeline">
             TIMELINE <MdTimeline />
           </Link>
-          <Link to="/admin/youtube">
+{/*           <Link to="/admin/youtube">
             YOUTUBE <FaYoutube />
-          </Link>
+          </Link> */}
           <Link to="/admin/project">
             PROJECTS <AiOutlineProject />
           </Link>
