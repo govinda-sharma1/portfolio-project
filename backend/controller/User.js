@@ -271,37 +271,37 @@ export const addTimeline = async (req, res) => {
   }
 };
 
-export const addYoutube = async (req, res) => {
-  try {
-    const { url, title, image } = req.body;
+// export const addYoutube = async (req, res) => {
+//   try {
+//     const { url, title, image } = req.body;
 
-    const user = await User.findById(req.user._id);
+//     const user = await User.findById(req.user._id);
 
-    const myCloud = await cloudinary.v2.uploader.upload(image, {
-      folder: "portfolio",
-    });
-    user.youtube.unshift({
-      url,
-      title,
-      image: {
-        public_id: myCloud.public_id,
-        url: myCloud.secure_url,
-      },
-    });
+//     const myCloud = await cloudinary.v2.uploader.upload(image, {
+//       folder: "portfolio",
+//     });
+//     user.youtube.unshift({
+//       url,
+//       title,
+//       image: {
+//         public_id: myCloud.public_id,
+//         url: myCloud.secure_url,
+//       },
+//     });
 
-    await user.save();
+//     await user.save();
 
-    res.status(200).json({
-      success: true,
-      message: "Added To Youtube Videos",
-    });
-  } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+//     res.status(200).json({
+//       success: true,
+//       message: "Added To Youtube Videos",
+//     });
+//   } catch (error) {
+//     return res.status(400).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
 
 export const addProject = async (req, res) => {
   try {
@@ -359,31 +359,31 @@ export const deleteTimeline = async (req, res) => {
   }
 };
 
-export const deleteYoutube = async (req, res) => {
-  try {
-    const { id } = req.params;
+// export const deleteYoutube = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const user = await User.findById(req.user._id);
+//     const user = await User.findById(req.user._id);
 
-    const video = user.youtube.find((video) => video._id == id);
+//     const video = user.youtube.find((video) => video._id == id);
 
-    await cloudinary.v2.uploader.destroy(video.image.public_id);
+//     await cloudinary.v2.uploader.destroy(video.image.public_id);
 
-    user.youtube = user.youtube.filter((video) => video._id != id);
+//     user.youtube = user.youtube.filter((video) => video._id != id);
 
-    await user.save();
+//     await user.save();
 
-    res.status(200).json({
-      success: true,
-      message: "Deleted from Youtube",
-    });
-  } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+//     res.status(200).json({
+//       success: true,
+//       message: "Deleted from Youtube",
+//     });
+//   } catch (error) {
+//     return res.status(400).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
 
 export const deleteProject = async (req, res) => {
   try {
