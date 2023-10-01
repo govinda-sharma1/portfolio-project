@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { addYoutube, getUser } from "../../actions/user";
+import { getUser } from "../../actions/user";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import YoutubeCard from "../YoutubeCard/YoutubeCard";
+// import YoutubeCard from "../YoutubeCard/YoutubeCard";
 
 const Youtube = () => {
   const { message, error, loading } = useSelector((state) => state.update);
@@ -22,7 +22,7 @@ const Youtube = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await dispatch(addYoutube(title, url, image));
+    // await dispatch(addYoutube(title, url, image));
     dispatch(getUser());
   };
 
@@ -103,7 +103,7 @@ const Youtube = () => {
         </form>
 
         <div className="adminPanelYoutubeVideos">
-          {user &&
+{/*           {user &&
             user.youtube &&
             user.youtube.map((item) => (
               <YoutubeCard
@@ -114,7 +114,7 @@ const Youtube = () => {
                 isAdmin={true}
                 id={item._id}
               />
-            ))}
+            ))} */}
         </div>
       </div>
     </div>
