@@ -20,7 +20,7 @@ const Youtube = () => {
   const [url, setUrl] = useState("");
   const [image, setImage] = useState("");
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     // await dispatch(addYoutube(title, url, image));
     dispatch(getUser());
